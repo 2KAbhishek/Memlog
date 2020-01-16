@@ -9,34 +9,4 @@
 ![Contributors](https://img.shields.io/github/contributors/2kabhishek/Memlog?style=plastic&color=ff69b4&label=Contributors)
 ![Followers](https://img.shields.io/github/followers/2kabhishek?style=plastic&color=blue&label=Followers)
 
-Memlog is a `<utility/tool/feature>` that allows `<insert_target_audience>` to do `<action/task_it_does>`.
-
-## Prerequisites
-
-Before you begin, ensure you have met the following requirements:
-
-* You have installed the latest version of `<coding_language/dependency/requirement_1>`
-
-## Installing Memlog
-
-To install Memlog, follow these steps:
-
-Linux & Mac OS:
-
-```
-<install_command>
-```
-
-Windows:
-
-```
-<install_command>
-```
-
-## Using Memlog
-
-To use Memlog, follow these steps:
-
-```
-<usage_example>
-```
+Log your memories with Memlog, tries to replicate a journal for day to day activties.
