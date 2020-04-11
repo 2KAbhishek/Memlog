@@ -1,0 +1,2 @@
+rootProject.name='Memlog'
+include ':app'
