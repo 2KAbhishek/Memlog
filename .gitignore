@@ -1,14 +1,26 @@
+# Local configuration file
+local.properties
+
+# Android Studio Configs
 *.iml
+.idea/caches
+.idea/libraries
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+
+# Gradle files
 .gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
+build
+app/build
+
+# Android Studio captures folder
+captures
+
+# Android Studio externalNativeBuild builder
 .externalNativeBuild
+
+# Others
 .cxx
+.DS_Store
