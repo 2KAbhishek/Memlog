@@ -9,9 +9,9 @@ class DataManager {
     }
     
     private fun initMoods(){
-        var mood = MoodInfo("☺", "Happy")
+        var mood = MoodInfo("happy", "☺ Happy ☺")
         moods[mood.moodId] = mood
-        mood = MoodInfo("☹", "Sad")
+        mood = MoodInfo("sad", "☹ Sad ☹")
         moods[mood.moodId] = mood
     }
 }
