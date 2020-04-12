@@ -4,6 +4,9 @@ class DataManager {
     val moods = HashMap<String, MoodInfo>()
     val logs = ArrayList<LogInfo>()
 
+    init {
+        initMoods()
+    }
     
     private fun initMoods(){
         var mood = MoodInfo("☺", "Happy")
