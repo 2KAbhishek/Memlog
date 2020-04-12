@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Memlog</string>
-    <string name="action_settings">Settings</string>
     <string name="title_activity_edit_memory">Edit Memory</string>
     <string name="text_memory_title">Enter Memory Title</string>
     <string name="text_memory_details">Enter Memory Details</string>
+    <string name="action_next">Next</string>
+    <string name="action_previous">Previous</string>
 </resources>
