@@ -7,7 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <Spinner
-        android:id="@+id/spinnerMood"
+        android:id="@+id/spinnerMoods"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -26,9 +26,9 @@
         android:gravity="start|top"
         android:hint="@string/text_memory_title"
         android:inputType="textMultiLine"
-        app:layout_constraintEnd_toEndOf="@+id/spinnerMood"
-        app:layout_constraintStart_toStartOf="@+id/spinnerMood"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerMood" />
+        app:layout_constraintEnd_toEndOf="@+id/spinnerMoods"
+        app:layout_constraintStart_toStartOf="@+id/spinnerMoods"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerMoods" />
 
     <EditText
         android:id="@+id/textMemoryDetails"
