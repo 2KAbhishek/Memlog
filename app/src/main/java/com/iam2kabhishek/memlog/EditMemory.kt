@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 
 class EditMemory : AppCompatActivity() {
 
+    private  var memoryPosition = POSITION_NOT_SET
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_memory)
@@ -20,6 +21,16 @@ class EditMemory : AppCompatActivity() {
 
         spinnerMoods.adapter = adapterMoods
 
+        memoryPosition = intent.getIntExtra(MEMORY_POSITION, POSITION_NOT_SET)
+
+        if(memoryPosition != POSITION_NOT_SET)
+            displayMemory()
+    }
+
+    private fun displayMemory() {
+       val memory = DataManager.memories[memoryPosition]
+        textMemoryTitle.setText(memory.title)
+        textMemoryDetails.setText(memory.details)
     }
 
 }
