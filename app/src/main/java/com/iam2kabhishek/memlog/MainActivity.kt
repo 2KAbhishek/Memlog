@@ -18,12 +18,16 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
-          val editMemoryIntent = Intent(this, EditMemory::class.java)
-            startActivity(editMemoryIntent)
+          val addMemoryIntent = Intent(this, EditMemory::class.java)
+            startActivity(addMemoryIntent)
         }
 
         listMemory.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, DataManager.memories)
-
+        listMemory.setOnItemClickListener{parent, view, position, id ->
+            val editMemoryIntent = Intent(this, EditMemory::class.java)
+            editMemoryIntent.putExtra(MEMORY_POSITION, position)
+            startActivity(editMemoryIntent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
