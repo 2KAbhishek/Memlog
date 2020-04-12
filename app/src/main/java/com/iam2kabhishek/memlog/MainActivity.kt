@@ -2,12 +2,13 @@ package com.iam2kabhishek.memlog
 
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ArrayAdapter
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +21,9 @@ class MainActivity : AppCompatActivity() {
           val editMemoryIntent = Intent(this, EditMemory::class.java)
             startActivity(editMemoryIntent)
         }
+
+        listMemory.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, DataManager.memories)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
