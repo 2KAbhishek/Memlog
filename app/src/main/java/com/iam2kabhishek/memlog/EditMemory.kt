@@ -14,8 +14,8 @@ class EditMemory : AppCompatActivity() {
         setContentView(R.layout.activity_edit_memory)
         setSupportActionBar(toolbar)
         
-        val dm = DataManager()
-        val adapterMoods = ArrayAdapter1<MoodInfo>(this, android.R.layout.simple_spinner_item, dm.moods.values.toList())
+        val adapterMoods = ArrayAdapter1<MoodInfo>(this, android.R.layout.simple_spinner_item,
+            DataManager.moods.values.toList())
         adapterMoods.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
         spinnerMoods.adapter = adapterMoods
