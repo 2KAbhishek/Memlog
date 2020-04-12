@@ -19,8 +19,11 @@ object DataManager {
     private fun initNotes(){
         var mood = MoodInfo("happy", "☺ Happy ☺")
         var memory = MemoryInfo(mood, "Title1", "This is a memory")
+        memories.add(memory)
         mood = MoodInfo("sad", "☹️ Sad ☹️")
         memory = MemoryInfo(mood, "Title2", "This is a memory")
+        memories.add(memory)
         memory = MemoryInfo(mood, "Title3", "This is a memory")
+        memories.add(memory)
     }
 }
