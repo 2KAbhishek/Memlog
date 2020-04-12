@@ -1,10 +1,10 @@
 package com.iam2kabhishek.memlog
 
-data class MoodInfo (val moodId: String, val moodName: String) {
+data class MoodInfo (val id: String, val name: String) {
     override fun toString(): String {
-        return moodName
+        return name
     }
 }
 
-data class MemoryInfo (var mood: MoodInfo, var memoryTitle: String, var memoryDetails: String)
+data class MemoryInfo (var mood: MoodInfo, var title: String, var details: String)
 
