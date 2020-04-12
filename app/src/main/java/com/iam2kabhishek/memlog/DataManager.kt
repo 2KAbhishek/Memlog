@@ -11,9 +11,9 @@ object DataManager {
     
     private fun initMoods(){
         var mood = MoodInfo("happy", "☺ Happy ☺")
-        moods[mood.moodId] = mood
+        moods[mood.id] = mood
         mood = MoodInfo("sad", "☹️ Sad ☹️")
-        moods[mood.moodId] = mood
+        moods[mood.id] = mood
     }
 
     private fun initNotes(){
