@@ -1,5 +1,6 @@
 package com.iam2kabhishek.memlog
 
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
@@ -29,6 +30,10 @@ class EditMemory : AppCompatActivity() {
 
         if(memoryPosition != POSITION_NOT_SET)
             displayMemory()
+        else {
+            DataManager.memories.add(MemoryInfo())
+            memoryPosition = DataManager.memories.lastIndex
+        }
     }
 
 
