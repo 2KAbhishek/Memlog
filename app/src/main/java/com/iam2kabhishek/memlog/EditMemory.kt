@@ -1,6 +1,5 @@
 package com.iam2kabhishek.memlog
 
-import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
@@ -26,7 +25,8 @@ class EditMemory : AppCompatActivity() {
 
         spinnerMoods.adapter = adapterMoods
 
-        memoryPosition = intent.getIntExtra(MEMORY_POSITION, POSITION_NOT_SET)
+        memoryPosition = savedInstanceState?.getInt(MEMORY_POSITION, POSITION_NOT_SET) ?:
+            intent.getIntExtra(MEMORY_POSITION, POSITION_NOT_SET)
 
         if(memoryPosition != POSITION_NOT_SET)
             displayMemory()
@@ -36,6 +36,10 @@ class EditMemory : AppCompatActivity() {
         }
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt(MEMORY_POSITION, memoryPosition)
+    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
