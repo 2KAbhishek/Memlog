@@ -70,7 +70,7 @@ class EditMemory : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
-        var menuItem : MenuItem?
+        val menuItem : MenuItem?
         if (memoryPosition <= DataManager.memories.indexOf(DataManager.memories[0])) {
             menuItem = menu?.findItem(R.id.action_previous)
             if (menuItem != null){
@@ -86,5 +86,17 @@ class EditMemory : AppCompatActivity() {
             }
         }
         return super.onPrepareOptionsMenu(menu)
+    }
+
+    override fun onPause() {
+        saveMemory()
+        super.onPause()
+    }
+
+    private fun saveMemory() {
+        val memory = DataManager.memories[memoryPosition]
+        memory.title = textMemoryTitle.text.toString()
+        memory.details = textMemoryDetails.text.toString()
+        memory.mood = spinnerMoods.selectedItem as MoodInfo
     }
 }

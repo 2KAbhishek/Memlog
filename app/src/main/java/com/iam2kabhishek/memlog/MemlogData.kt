@@ -6,5 +6,5 @@ data class MoodInfo (val id: String, val name: String) {
     }
 }
 
-data class MemoryInfo (var mood: MoodInfo, var title: String, var details: String)
+data class MemoryInfo (var mood: MoodInfo? = null, var title: String? = null, var details: String? = null)
 
