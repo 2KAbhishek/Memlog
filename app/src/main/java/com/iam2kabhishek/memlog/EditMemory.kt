@@ -1,5 +1,6 @@
 package com.iam2kabhishek.memlog
 
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_edit_memory.*
 import kotlinx.android.synthetic.main.content_edit_memory.*
 import android.widget.ArrayAdapter
+import androidx.annotation.RequiresApi
 
 class EditMemory : AppCompatActivity() {
 
@@ -52,10 +54,12 @@ class EditMemory : AppCompatActivity() {
     private fun moveNext() {
         ++memoryPosition
         displayMemory()
+        invalidateOptionsMenu()
     }
     private fun movePrevious() {
         --memoryPosition
         displayMemory()
+        invalidateOptionsMenu()
     }
 
     private fun displayMemory() {
@@ -64,4 +68,23 @@ class EditMemory : AppCompatActivity() {
         textMemoryDetails.setText(memory.details)
     }
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        var menuItem : MenuItem?
+        if (memoryPosition <= DataManager.memories.indexOf(DataManager.memories[0])) {
+            menuItem = menu?.findItem(R.id.action_previous)
+            if (menuItem != null){
+                menuItem.icon = getDrawable(R.drawable.ic_block_white_24dp)
+                menuItem.isEnabled = false
+            }
+        }
+        else if (memoryPosition >= DataManager.memories.lastIndex){
+            menuItem = menu?.findItem((R.id.action_next))
+            if (menuItem != null){
+                menuItem.icon = getDrawable(R.drawable.ic_block_white_24dp)
+                menuItem.isEnabled = false
+            }
+        }
+        return super.onPrepareOptionsMenu(menu)
+    }
 }
