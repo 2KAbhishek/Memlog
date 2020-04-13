@@ -20,11 +20,20 @@ class MainActivity : AppCompatActivity() {
             startActivity(addMemoryIntent)
         }
 
-        listMemory.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, DataManager.memories)
+        listMemory.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1,
+            DataManager.memories)
+
         listMemory.setOnItemClickListener{parent, view, position, id ->
             val editMemoryIntent = Intent(this, EditMemory::class.java)
             editMemoryIntent.putExtra(MEMORY_POSITION, position)
             startActivity(editMemoryIntent)
         }
     }
+
+    override fun onResume(){
+        super.onResume()
+        (listMemory.adapter as ArrayAdapter<MemoryInfo>).notifyDataSetChanged()
+    }
+
 }
+
