@@ -72,7 +72,9 @@ class EditMemory : AppCompatActivity() {
     }
 
     private fun displayMemory() {
-       val memory = DataManager.memories[memoryPosition]
+        val memory = DataManager.memories[memoryPosition]
+        val moodPosition = DataManager.moods.values.indexOf(memory.mood)
+        spinnerMoods.setSelection(moodPosition)
         textMemoryTitle.setText(memory.title)
         textMemoryDetails.setText(memory.details)
     }
