@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(addMemoryIntent)
         }
         listMemories.layoutManager = LinearLayoutManager(this)
+        listMemories.adapter = MemoryAdapter(this, DataManager.memories)
     }
 
     override fun onResume(){
