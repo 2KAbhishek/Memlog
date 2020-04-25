@@ -6,24 +6,21 @@ object DataManager {
 
     init {
         initMoods()
-        initNotes()
+        initMemories()
     }
     
     private fun initMoods(){
-        var mood = MoodInfo("happy", "☺")
+        var mood = MoodInfo("happy", "\uD83D\uDE04")
         moods[mood.id] = mood
-        mood = MoodInfo("sad", "☹️")
+        mood = MoodInfo("sad", "\uD83D\uDE14️")
+        moods[mood.id] = mood
+        mood = MoodInfo("angry", "\uD83D\uDE20")
         moods[mood.id] = mood
     }
 
-    private fun initNotes(){
-        var mood = MoodInfo("happy", "☺")
-        var memory = MemoryInfo(mood, "Title1", "This is a memory")
-        memories.add(memory)
-        mood = MoodInfo("sad", "☹️")
-        memory = MemoryInfo(mood, "Title2", "This is a memory")
-        memories.add(memory)
-        memory = MemoryInfo(mood, "Title3", "This is a memory")
-        memories.add(memory)
+    private fun initMemories(){
+        memories.add(MemoryInfo(moods["happy"]!!, "Test1", "Test1"))
+        memories.add(MemoryInfo(moods["sad"]!!, "Test2", "Test2"))
+        memories.add(MemoryInfo(moods["angry"]!!, "Test3", "Test3"))
     }
 }
