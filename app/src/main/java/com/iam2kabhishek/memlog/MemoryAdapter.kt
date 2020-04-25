@@ -1,6 +1,7 @@
 package com.iam2kabhishek.memlog
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,11 +24,21 @@ class MemoryAdapter(private val context: Context, private val memories: List<Mem
         val memory = memories[position]
         holder.textMood?.text = memory.mood?.name
         holder.textTitle?.text = memory.title
+        holder.memoryPosition = position
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val textMood = itemView.findViewById<TextView?>(R.id.textMood)
         val textTitle = itemView.findViewById<TextView?>(R.id.textMemTitle)
+        var memoryPosition = 0
+
+        init {
+            itemView.setOnClickListener{
+                val intent = Intent(context, EditMemory::class.java)
+                intent.putExtra(MEMORY_POSITION, memoryPosition)
+                context.startActivity(intent)
+            }
+        }
     }
 
 }
