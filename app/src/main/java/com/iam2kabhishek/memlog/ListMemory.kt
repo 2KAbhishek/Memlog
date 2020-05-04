@@ -46,4 +46,9 @@ class ListMemory : AppCompatActivity() {
         menuInflater.inflate(R.menu.list_memory, menu)
         return true
     }
+
+    override fun onResume() {
+    super.onResume()
+    listMemory.adapter?.notifyDataSetChanged()
+    }
 }
