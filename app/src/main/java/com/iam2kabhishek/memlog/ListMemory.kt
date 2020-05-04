@@ -28,6 +28,11 @@ class ListMemory : AppCompatActivity() {
         listMemory.layoutManager = LinearLayoutManager(this)
         listMemory.adapter = MemoryAdapter(this, DataManager.memories)
 
+        val toggle = ActionBarDrawerToggle(this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        drawer_layout.addDrawerListener(toggle)
+        toggle.syncState()
+
+    }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
