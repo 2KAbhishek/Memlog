@@ -25,6 +25,9 @@ class ListMemory : AppCompatActivity() {
             startActivity(Intent(this, EditMemory::class.java))
         }
 
+        listMemory.layoutManager = LinearLayoutManager(this)
+        listMemory.adapter = MemoryAdapter(this, DataManager.memories)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
