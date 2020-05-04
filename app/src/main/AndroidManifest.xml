@@ -24,11 +24,6 @@
             android:name=".EditMemory"
             android:label="@string/title_activity_edit_memory"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
     </application>
 
 </manifest>
