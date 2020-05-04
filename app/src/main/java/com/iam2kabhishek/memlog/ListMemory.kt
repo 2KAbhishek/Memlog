@@ -33,6 +33,13 @@ class ListMemory : AppCompatActivity() {
         toggle.syncState()
 
     }
+
+    override fun onBackPressed() {
+        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
+            (drawer_layout.closeDrawer(GravityCompat.START))
+        } else {
+            super.onBackPressed()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
