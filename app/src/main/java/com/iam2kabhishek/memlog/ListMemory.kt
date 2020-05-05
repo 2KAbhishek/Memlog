@@ -16,55 +16,58 @@ import kotlinx.android.synthetic.main.content_list_memory.*
 
 class ListMemory : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list_memory)
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
+    private val memoryLayoutManager by lazy { LinearLayoutManager(this) }
+    private val memoryAdapter by lazy { MemoryAdapter(this, DataManager.memories) }
 
-        val fab: FloatingActionButton = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            startActivity(Intent(this, EditMemory::class.java))
-        }
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_list_memory)
+            val toolbar: Toolbar = findViewById(R.id.toolbar)
+            setSupportActionBar(toolbar)
 
-        listMemory.layoutManager = LinearLayoutManager(this)
-        listMemory.adapter = MemoryAdapter(this, DataManager.memories)
-
-        val toggle = ActionBarDrawerToggle(this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
-        drawer_layout.addDrawerListener(toggle)
-        toggle.syncState()
-
-        nav_view.setNavigationItemSelectedListener(this)
-    }
-
-    override fun onBackPressed() {
-        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
-            (drawer_layout.closeDrawer(GravityCompat.START))
-        } else {
-            super.onBackPressed()
-        }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.list_memory, menu)
-        return true
-    }
-
-    override fun onResume() {
-    super.onResume()
-    listMemory.adapter?.notifyDataSetChanged()
-    }
-
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_memory -> {
-
+            val fab: FloatingActionButton = findViewById(R.id.fab)
+            fab.setOnClickListener { view ->
+                startActivity(Intent(this, EditMemory::class.java))
             }
-            R.id.nav_mood -> {
 
+            listMemory.layoutManager = memoryLayoutManager
+            listMemory.adapter = memoryAdapter
+
+            val toggle = ActionBarDrawerToggle(this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+            drawer_layout.addDrawerListener(toggle)
+            toggle.syncState()
+
+            nav_view.setNavigationItemSelectedListener(this)
+        }
+
+        override fun onBackPressed() {
+            if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
+                (drawer_layout.closeDrawer(GravityCompat.START))
+            } else {
+                super.onBackPressed()
             }
         }
-        drawer_layout.closeDrawer(GravityCompat.START)
-        return true
-    }
+
+        override fun onCreateOptionsMenu(menu: Menu): Boolean {
+            menuInflater.inflate(R.menu.list_memory, menu)
+            return true
+        }
+
+        override fun onResume() {
+            super.onResume()
+            listMemory.adapter?.notifyDataSetChanged()
+        }
+
+        override fun onNavigationItemSelected(item: MenuItem): Boolean {
+            when (item.itemId) {
+                R.id.nav_memory -> {
+
+                }
+                R.id.nav_mood -> {
+
+                }
+            }
+            drawer_layout.closeDrawer(GravityCompat.START)
+            return true
+        }
 }
