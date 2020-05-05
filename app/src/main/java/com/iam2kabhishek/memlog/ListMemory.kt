@@ -30,8 +30,7 @@ class ListMemory : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
                 startActivity(Intent(this, EditMemory::class.java))
             }
 
-            listMemory.layoutManager = memoryLayoutManager
-            listMemory.adapter = memoryAdapter
+            displayMemory()
 
             val toggle = ActionBarDrawerToggle(this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
             drawer_layout.addDrawerListener(toggle)
@@ -40,7 +39,14 @@ class ListMemory : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
             nav_view.setNavigationItemSelectedListener(this)
         }
 
-        override fun onBackPressed() {
+    private fun displayMemory() {
+        listMemory.layoutManager = memoryLayoutManager
+        listMemory.adapter = memoryAdapter
+
+        nav_view.menu.findItem(R.id.nav_memory).isChecked = true
+    }
+
+    override fun onBackPressed() {
             if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
                 (drawer_layout.closeDrawer(GravityCompat.START))
             } else {
@@ -61,7 +67,7 @@ class ListMemory : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
         override fun onNavigationItemSelected(item: MenuItem): Boolean {
             when (item.itemId) {
                 R.id.nav_memory -> {
-
+                    displayMemory()
                 }
                 R.id.nav_mood -> {
 
