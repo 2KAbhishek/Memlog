@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 
 class MoodAdapter(private val context: Context, private val moods: List<MoodInfo>) :
     RecyclerView.Adapter<MoodAdapter.ViewHolder>() {
@@ -18,25 +19,26 @@ class MoodAdapter(private val context: Context, private val moods: List<MoodInfo
         return ViewHolder(itemView)
     }
 
-    override fun getItemCount() = memories.size
+    override fun getItemCount() = moods.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val memory = memories[position]
-        holder.textMood?.text = memory.mood?.name
-        holder.textTitle?.text = memory.title
-        holder.memoryPosition = position
+        val mood = moods[position]
+        holder.textMoodIcon?.text = mood.name
+        holder.textMoodTitle?.text = mood.id
+        holder.moodPosition = position
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val textMoodIcon = itemView.findViewById<TextView?>(R.id.textMoodIcon)
         val textMoodTitle = itemView.findViewById<TextView?>(R.id.textMoodTitle)
-        var memoryPosition = 0
+        var moodPosition = 0
 
         init {
             itemView.setOnClickListener{
-                val intent = Intent(context, EditMemory::class.java)
-                intent.putExtra(MEMORY_POSITION, memoryPosition)
-                context.startActivity(intent)
+//                val intent = Intent(context, EditMemory::class.java)
+//                intent.putExtra(MEMORY_POSITION, memoryPosition)
+//                context.startActivity(intent)
+                Snackbar.make(it, moods[moodPosition].id, Snackbar.LENGTH_LONG).show()
             }
         }
     }
