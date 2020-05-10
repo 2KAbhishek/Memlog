@@ -8,6 +8,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
@@ -18,6 +19,8 @@ class ListMemory : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
 
     private val memoryLayoutManager by lazy { LinearLayoutManager(this) }
     private val memoryAdapter by lazy { MemoryAdapter(this, DataManager.memories) }
+    private val moodLayoutManager by lazy { GridLayoutManager(this, 2) }
+    private val moodAdapter by lazy { MoodAdapter(this, DataManager.moods.values.toList() )}
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
@@ -46,6 +49,13 @@ class ListMemory : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
         nav_view.menu.findItem(R.id.nav_memory).isChecked = true
     }
 
+    private fun displayMood() {
+        listMemory.layoutManager = moodLayoutManager
+        listMemory.adapter = moodAdapter
+
+        nav_view.menu.findItem(R.id.nav_mood).isChecked = true
+    }
+
     override fun onBackPressed() {
             if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
                 (drawer_layout.closeDrawer(GravityCompat.START))
@@ -70,7 +80,7 @@ class ListMemory : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
                     displayMemory()
                 }
                 R.id.nav_mood -> {
-
+                    displayMood()
                 }
             }
             drawer_layout.closeDrawer(GravityCompat.START)
