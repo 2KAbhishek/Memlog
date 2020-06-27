@@ -1,5 +1,3 @@
-<div align="center">
-
 # Memlog
 
 ![Size](https://img.shields.io/github/repo-size/2kabhishek/Memlog?style=plastic&color=0f0&label=Size)
@@ -12,7 +10,5 @@
 
 Log your memories with Memlog, tries to replicate a journal for day to day activties.
 
-</div>
 
-Please consider hitting the ⭐ star button if this repo was useful to you, any contributions and suggestions are welcome.
 
