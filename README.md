@@ -9,6 +9,3 @@
 ![License](https://img.shields.io/github/license/2kabhishek/Memlog?style=plastic&color=555&label=License)
 
 Log your memories with Memlog, tries to replicate a journal for day to day activties.
-
-
-
